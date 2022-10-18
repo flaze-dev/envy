@@ -81,3 +81,18 @@ const Counter = () => {
     </div>
 }
 ```
+
+### State Listeners
+```typescript jsx
+const counter = value(0);
+
+const listener = (value: number) => {
+  console.log("Counter updated:", value);
+}
+
+// Connect Listener
+value.on("update", listener);
+
+// Disconnect Listener
+value.off("update", listener);
+```
