@@ -88,6 +88,33 @@ const Counter = () => {
 }
 ```
 
+## Concepts
+### Better views
+```typescript jsx
+const increment = (value: number) => {
+    return value + 1;
+}
+
+const counter = value(0, {increment});
+const counter2 = value(0, {increment});
+
+const sumView = view([counter, counter2], () => {
+   return counter.get() + counter2.get(); 
+});
+
+const Counter = () => {
+    const count = useValue(counter);
+    const count2 = useValue(counter2);
+    const sum = useValue(sumView);
+    
+    return <div>
+        <button onClick={counter.increment}>{count}</button>
+        <button onClick={counter2.increment}>{count2}</button>
+        <span>{sum}</span>
+    </div>
+}
+```
+
 ### State Listeners
 
 ```typescript jsx
@@ -139,6 +166,5 @@ const firstName = partial(name, (name) => ({
 const {firstName} = useValue(firstName);
 return <div>{firstName}</div>
 ```
-
 
 
