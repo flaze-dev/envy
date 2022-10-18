@@ -96,3 +96,24 @@ value.on("update", listener);
 // Disconnect Listener
 value.off("update", listener);
 ```
+
+### Group State Listeners
+```typescript jsx
+const counterA = value(0);
+const counterB = value(0);
+
+const listener = (values: [number, number]) => {
+  const [valueA, valueB] = values;
+  console.log("Counters updated:", valueA, valueB);
+}
+
+// Group
+const counters = group(counterA, counterB);
+
+// Connect Listener
+counters.on("update", listener);
+
+// Disconnect Listener
+counters.off("update", listener);
+```
+
