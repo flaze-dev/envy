@@ -167,4 +167,26 @@ const {firstName} = useValue(firstName);
 return <div>{firstName}</div>
 ```
 
+### Context
+```typescript jsx
+const themeContext = generateContext((initial) => {
+  const theme = value(initial.theme);
 
+  const toggleTheme = () => {
+    theme.set((value) => {
+      return value === "light" ? "dark" : "light"
+    });
+  }
+  
+  return {
+    theme,
+    toggleTheme,
+  };
+});
+```
+
+```typescript jsx
+<ThemeContext theme="dark">
+  <Component {...props} />
+</ThemeContext>
+```
