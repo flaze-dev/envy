@@ -137,7 +137,7 @@ const firstName = partial(name, (name) => ({
 
 ```typescript jsx
 const {firstName} = useValue(firstName);
-return <div>{fn} {ln}</div>
+return <div>{firstName}</div>
 ```
 
 
