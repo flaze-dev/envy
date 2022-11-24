@@ -1,9 +1,10 @@
 import {useEffect, useState} from "react";
 
+
 let id = 0;
 
 // Containers
-export const value = (value: any, actions: any = {}) => {
+export const value_old = (value: any, actions: any = {}) => {
   const __id = id++;
   let __value = value;
 
@@ -35,7 +36,7 @@ export const value = (value: any, actions: any = {}) => {
   return result;
 }
 
-export const view = (values: any[], callback: (values: any[]) => void) => {
+export const view_old = (values: any[], callback: (values: any[]) => void) => {
   return {
     values,
     callback,
@@ -43,7 +44,7 @@ export const view = (values: any[], callback: (values: any[]) => void) => {
 }
 
 // Hooks
-export const useValue = (value: any) => {
+export const useValue_old = (value: any) => {
   const [__value, __setValue] = useState(value.get());
 
   const listener = (e: Event) => {
@@ -66,7 +67,7 @@ export const useValue = (value: any) => {
   return __value;
 }
 
-export const useView = (view: any) => {
+export const useView_old = (view: any) => {
   const {values, callback} = view;
   const valuesWithIds = values.map((v: any) => ({id: v.__id, value: v.get()}));
   const [__values, __setValues] = useState(valuesWithIds);
